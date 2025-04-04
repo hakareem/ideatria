@@ -7,10 +7,11 @@ const posts = [
 ]
 
 const trpc = initTRPC.create()
-const trpcRouter = trpc.router({
-  getPosts: trpc.procedure.query(() => {
+
+export const trpcRouter = trpc.router({
+  getIdeas: trpc.procedure.query(() => {
     return { posts }
   }),
 })
 
-export type trpcRouter = typeof trpcRouter
+export type TrpcRouter = typeof trpcRouter
