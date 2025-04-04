@@ -1,5 +1,5 @@
 import { createTRPCReact } from '@trpc/react-query';
-import type { TrpcRouter } from '@ideatria/backend/src/trpc'
+import type { TrpcRouter } from '@ideatria/backend/dist/trpc';
 import { QueryClient } from '@tanstack/react-query';
 
 export const trpc = createTRPCReact<TrpcRouter>()
