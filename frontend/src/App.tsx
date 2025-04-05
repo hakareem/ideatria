@@ -1,11 +1,10 @@
+import { TrpcProvider } from "./lib/trpc"
+import { AllPosts } from "./components/AllPosts"
+
 export const App = () => {
-  const arr: number[] = []
   return (
-    <div>
-      <h1>Hello World</h1>{' '}
-      {arr.map((el) => (
-        <h1>{el}</h1>
-      ))}
-    </div>
+    <TrpcProvider>
+      <AllPosts />
+    </TrpcProvider>
   )
 }

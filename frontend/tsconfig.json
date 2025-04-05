@@ -1,4 +1,11 @@
 {
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@trpc": ["trpc"], 
+      "trpc": ["../../backend/src/trpc"] 
+    }
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },

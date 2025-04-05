@@ -1,10 +1,10 @@
-import { createTRPCReact } from '@trpc/react-query';
-import type { TrpcRouter } from '@ideatria/backend/dist/trpc';
+import { createTRPCReact, httpBatchLink } from '@trpc/react-query';
+import type { AppRouter } from '@ideatria/backend/src/trpc';
 import { QueryClient } from '@tanstack/react-query';
 
-export const trpc = createTRPCReact<TrpcRouter>()
+export const trpc = createTRPCReact<AppRouter>()
 
-export const queryClient = new QueryClient({
+const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
         refetchOnWindowFocus: false,
@@ -12,3 +12,19 @@ export const queryClient = new QueryClient({
     }
   } 
 });
+
+const trpcClient = trpc.createClient({
+    links: [
+        httpBatchLink({
+            url: 'http://localhost:3000/trpc',
+        })
+    ]
+})
+
+export const TrpcProvider = ({ children }: { children: React.ReactNode }) => {
+    return (
+        <trpc.Provider client={trpcClient} queryClient={queryClient}>
+            {children}
+        </trpc.Provider>
+    )
+}

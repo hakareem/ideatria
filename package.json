@@ -1,5 +1,10 @@
 {
     "name": "ideatria",
     "private": true,
-    "version": "0.0.0"
+    "version": "0.0.0",
+    "dependencies": {
+        "@trpc/client": "11.0.2",
+        "@trpc/react-query": "11.0.2",
+        "@trpc/server": "11.0.2"
+    }
 }
